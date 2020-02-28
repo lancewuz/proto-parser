@@ -1,6 +1,6 @@
 {
   "name": "proto-parser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A parser for proto files",
   "main": "index.js",
   "scripts": {
