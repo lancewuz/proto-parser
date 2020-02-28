@@ -1,0 +1,56 @@
+{
+  "name": "proto-parser",
+  "version": "0.0.0",
+  "description": "A parser for proto files",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require ts-node/register test/*.test.ts",
+    "coverage": "nyc -e=.ts npm run test",
+    "eslint": "eslint --fix --ext .js,.ts, .",
+    "prettier": "prettier --write '{src,test}/*'",
+    "changelog": "standard-changelog -i CHANGELOG.md -s -r 0 -v",
+    "version": "./script/version.sh $npm_package_version",
+    "postversion": "./script/postversion.sh $npm_package_version"
+  },
+  "author": "lancewuz",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lancewuz/proto-parser.git"
+  },
+  "homepage": "https://github.com/lancewuz/proto-parser",
+  "keywords": [
+    "proto",
+    "protoc",
+    "ast",
+    "parser",
+    "protocbuf",
+    "protocol buffers"
+  ],
+  "files": [
+    "src",
+    "index.js",
+    "index.d.ts"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/chai": "^4.2.9",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.6",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.3",
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1",
+    "standard-changelog": "^2.0.21",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  }
+}
