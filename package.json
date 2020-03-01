@@ -24,7 +24,7 @@
     "protoc",
     "ast",
     "parser",
-    "protocbuf",
+    "protobuf",
     "protocol buffers"
   ],
   "files": [
