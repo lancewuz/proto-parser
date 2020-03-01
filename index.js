@@ -15,7 +15,10 @@ function parse(source = '', option) {
     }
 
     return {
-      line, message, error, syntaxType: SyntaxType.ProtoError,
+      line,
+      message,
+      error,
+      syntaxType: SyntaxType.ProtoError,
     };
   }
 }

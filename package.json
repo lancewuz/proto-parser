@@ -7,7 +7,7 @@
     "test": "mocha --require ts-node/register test/*.test.ts",
     "coverage": "nyc -e=.ts npm run test",
     "eslint": "eslint --fix --ext .js,.ts, .",
-    "prettier": "prettier --write '{src,test}/*'",
+    "prettier": "prettier --write '{{src,test}/*,index.*}'",
     "changelog": "standard-changelog -i CHANGELOG.md -s -r 0 -v",
     "version": "./script/version.sh $npm_package_version",
     "postversion": "./script/postversion.sh $npm_package_version"
