@@ -27,7 +27,6 @@ service Example {
     const protoDocument = t.parse(idl) as t.ProtoDocument;
     const serviceInfos = protoDocument.root.nested
       .Example as t.ServiceDefinition;
-    // console.log(serviceInfos)
     return expect(serviceInfos).to.eql(expected);
   });
 
@@ -88,7 +87,6 @@ service Example {
     const protoDocument = t.parse(idl) as t.ProtoDocument;
     const service = protoDocument.root.nested.Example as t.ServiceDefinition;
     const { methods } = service;
-    // console.log(methods)
     return expect(methods).to.eql(expected);
   });
 
@@ -106,7 +104,6 @@ service Example {
     const service = protoDocument.root.nested.Example as t.ServiceDefinition;
 
     const message = service.nested.Test;
-    // console.log(message)
     return expect(message.fullName).to.eql('.Example.Test');
   });
 

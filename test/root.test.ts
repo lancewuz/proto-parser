@@ -30,7 +30,6 @@ option (my_option) = "Foo1";
     };
 
     const protoDocument = t.parse(idl) as t.ProtoDocument;
-    // console.log(protoDocument)
     return expect(protoDocument).to.eql(expected);
   });
 
@@ -43,7 +42,6 @@ import weak 'c.proto';
     `;
 
     const protoDocument = t.parse(idl) as t.ProtoDocument;
-    // console.log(protoDocument)
     return expect(protoDocument.imports).to.eql(['a.proto', 'b.proto']);
   });
 
@@ -71,7 +69,6 @@ option (my_option) = "Foo1";
     const packageName = protoDocument.package;
     const pkg: any = protoDocument.root.nested.foo;
     pkg.packageName = packageName;
-    // console.log(pkg)
     return expect(pkg).to.eql(expected);
   });
 
@@ -99,7 +96,6 @@ option (my_option) = "Foo1";
     const packageName = protoDocument.package;
     const pkg: any = protoDocument.root.nested.foo.nested.bar;
     pkg.packageName = packageName;
-    // console.log(pkg)
     return expect(pkg).to.eql(expected);
   });
 
@@ -116,7 +112,6 @@ syntax
 
     const protoError = t.parse(idl) as t.ProtoError;
     const errInfos = util.copyObjectWithKeys(protoError, ['line', 'message']);
-    // console.log(protoError)
     return expect(errInfos).to.eql(expected);
   });
 
@@ -133,7 +128,6 @@ syntax = 'proto3';;
 
     const protoError = t.parse(idl) as t.ProtoError;
     const errInfos = util.copyObjectWithKeys(protoError, ['line', 'message']);
-    // console.log(protoError)
     return expect(errInfos).to.eql(expected);
   });
 
@@ -146,7 +140,6 @@ package .foo;
     `;
 
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 
@@ -159,7 +152,6 @@ package 1;
     `;
 
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 
@@ -167,7 +159,6 @@ package 1;
     const idl: any = undefined;
 
     const protoDocument = t.parse(idl) as t.ProtoDocument;
-    // console.log(protoDocument)
     return expect(protoDocument.syntaxType).to.eql(t.SyntaxType.ProtoDocument);
   });
 });

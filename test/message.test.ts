@@ -26,7 +26,6 @@ message Test {
       'fullName',
       'syntaxType',
     ]);
-    // console.log(messageInfos)
     return expect(messageInfos).to.eql(expected);
   });
 
@@ -59,7 +58,6 @@ message Test {
       'comment',
       'syntaxType',
     ]);
-    // console.log(messageInfos)
     return expect(messageInfos).to.eql(expected);
   });
 
@@ -102,7 +100,6 @@ message Test {
       'comment',
       'type',
     ]);
-    // console.log(fieldInfos)
     return expect(fieldInfos).to.eql(expected);
   });
 
@@ -129,7 +126,6 @@ message Test {
       'extensions',
       'reserved',
     ]);
-    // console.log(messageInfos)
     return expect(messageInfos).to.eql(expected);
   });
 
@@ -169,7 +165,6 @@ message Test {
     const protoDocument = t.parse(idl) as t.ProtoDocument;
     const message = protoDocument.root.nested.Test as t.MessageDefinition;
     const fieldMap = util.copyMapWithkeys(message.fields, ['type']);
-    // console.log(fieldMap);
     return expect(fieldMap).to.eql(expected);
   });
 
@@ -233,7 +228,6 @@ message Test {
       'repeated',
       'map',
     ]);
-    // console.log(fieldMap);
     return expect(fieldMap).to.eql(expected);
   });
 
@@ -269,7 +263,6 @@ message Test {
       'map',
       'options',
     ]);
-    // console.log(fieldInfos);
     return expect(fieldInfos).to.eql(expected);
   });
 
@@ -303,7 +296,6 @@ message Test {
       'comment',
       'syntaxType',
     ]);
-    // console.log(messageInfos);
     return expect(messageInfos).to.eql(expected);
   });
 
@@ -334,7 +326,6 @@ message Test {
     const message = protoDocument.root.nested.foo.nested
       .Test as t.MessageDefinition;
     const fieldMap = util.copyMapWithkeys(message.fields, ['type', 'keyType']);
-    // console.log(fieldMap);
     return expect(fieldMap).to.eql(expected);
   });
 
@@ -373,7 +364,6 @@ message Test {
     const protoDocument = t.parse(idl) as t.ProtoDocument;
     const message = protoDocument.root.nested.Test as t.MessageDefinition;
     const fieldMap = util.copyMapWithkeys(message.fields, ['type', 'keyType']);
-    // console.log(fieldMap);
     return expect(fieldMap).to.eql(expected);
   });
 
@@ -406,7 +396,6 @@ message Test {
     const fields = util.copyMapWithkeys(message.fields, ['id']);
     const oneof = message.oneofs.test_oneof;
     const actual = { fields, oneof };
-    // console.log(actual);
     return expect(actual).to.eql(expected);
   });
 
@@ -435,7 +424,6 @@ message Test {
     const messageTest = protoDocument.root.nested.Test as t.MessageDefinition;
     const { k2 } = messageTest.nested;
     const fieldInfos = util.copyMapWithkeys({ k1, k2 }, ['id', 'extend']);
-    // console.log(fieldInfos);
     return expect(fieldInfos).to.eql(expected);
   });
 
@@ -488,7 +476,6 @@ message Test {
       'type',
     ]);
     const infos = { message, field };
-    // console.log(infos);
     return expect(infos).to.eql(expected);
   });
 
@@ -503,7 +490,6 @@ message Test {
     `;
 
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 
@@ -518,7 +504,6 @@ message Test {
     `;
 
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 
@@ -533,7 +518,6 @@ message Test {
     `;
 
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 
@@ -548,7 +532,6 @@ message Test {
     `;
 
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 
@@ -562,7 +545,6 @@ message Test {
     `;
 
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 });

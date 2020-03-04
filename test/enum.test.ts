@@ -36,7 +36,6 @@ enum Test {
 
     // convert to json string to avoid the weird 'deeply equal' errors
     enumDefinition.values = JSON.stringify(enumDefinition.values);
-    // console.log(enumDefinition);
     return expect(enumDefinition).to.eql(expected);
   });
 
@@ -50,7 +49,6 @@ enum Test {
   WEB = 1;
 }
     `;
-
     const ProtoError = t.parse(idl) as t.ProtoError;
     return expect(ProtoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
@@ -65,7 +63,6 @@ enum Test {
   UNIVERSAL = 2;
 }
     `;
-
     const ProtoError = t.parse(idl) as t.ProtoError;
     return expect(ProtoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
@@ -80,9 +77,7 @@ enum Test {
   UNIVERSAL = 1;
 }
     `;
-
     const protoError = t.parse(idl) as t.ProtoError;
-    // console.log(protoError)
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
 
@@ -96,7 +91,6 @@ enum Test {
   UNIVERSAL = 1;
 }
     `;
-
     const protoError = t.parse(idl) as t.ProtoError;
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
