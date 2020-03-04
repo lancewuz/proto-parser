@@ -1,4 +1,4 @@
-# proto-parser [![npm version](https://img.shields.io/npm/v/proto-parser.svg?style=flat)](https://www.npmjs.com/package/proto-parser) [![CircleCI Status](https://circleci.com/lancewuz/lancewuz/circleci-101.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/facebook/react) 
+# proto-parser [![npm version](https://img.shields.io/npm/v/proto-parser.svg?style=flat)](https://www.npmjs.com/package/proto-parser) [![CircleCI Status](https://circleci.com/lancewuz/lancewuz/circleci-101.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/facebook/react) [![codecov](https://codecov.io/gh/lancewuz/npm-command-call/branch/master/graph/badge.svg)](https://codecov.io/gh/lancewuz/npm-command-call)
 
 A parser for [proto](https://developers.google.com/protocol-buffers/docs/proto3) files.
 
