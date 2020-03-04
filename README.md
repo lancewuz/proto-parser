@@ -1,4 +1,4 @@
-# proto-parser [![npm version](https://badgen.net/badge/npm/v0.0.x/red)](https://www.npmjs.com/package/proto-parser)
+# proto-parser [![npm version](https://img.shields.io/npm/v/proto-parser.svg?style=flat)](https://www.npmjs.com/package/proto-parser) [![CircleCI Status](https://circleci.com/lancewuz/lancewuz/circleci-101.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/facebook/react) 
 
 A parser for [proto](https://developers.google.com/protocol-buffers/docs/proto3) files.
 

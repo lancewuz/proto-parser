@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register test/*.test.ts",
-    "coverage": "nyc -e=.ts npm run test",
+    "cover": "nyc -e=.ts npm run test",
+    "upload-cover": "./script/upload_codecov.sh",
     "eslint": "eslint --fix --ext .js,.ts, .",
     "prettier": "prettier --write '{{src,test}/*,index.*}'",
     "changelog": "standard-changelog -i CHANGELOG.md -s -r 0 -v",
     "version": "./script/version.sh $npm_package_version",
-    "postversion": "./script/postversion.sh $npm_package_version"
+    "post-version": "./script/post_version.sh $npm_package_version"
   },
   "author": "lancewuz",
   "license": "ISC",

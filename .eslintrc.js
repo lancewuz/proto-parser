@@ -8,7 +8,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
-    'max-len': ['error', { 'code': 160, 'tabWidth': 4 }],
+    'max-len': ['error', { 'code': 160, 'tabWidth': 2 }],
     'max-classes-per-file': 'off',
     'no-plusplus': 'off',
   }

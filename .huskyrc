@@ -1,6 +1,6 @@
 {
   "hooks": {
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "pre-commit": "npm run eslint && npm run prettier && npm run coverage && git add ."
+    "pre-commit": "npm run eslint && npm run prettier && npm run cover && git add ."
   }
 }
