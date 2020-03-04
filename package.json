@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register test/*.test.ts",
     "cover": "nyc -e=.ts npm run test",
-    "upload-cover": "./script/upload_codecov.sh",
+    "upload-cover": "sh ./script/upload_codecov.sh",
     "eslint": "eslint --fix --ext .js,.ts, .",
     "prettier": "prettier --write '{{src,test}/*,index.*}'",
     "changelog": "standard-changelog -i CHANGELOG.md -s -r 0 -v",
