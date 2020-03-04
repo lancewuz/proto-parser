@@ -10,8 +10,8 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: npm cover
-            - run: npm upload-cover
+            - run: npm run cover
+            - run: npm run upload-cover
 workflows:
     build-and-test:
       jobs:
