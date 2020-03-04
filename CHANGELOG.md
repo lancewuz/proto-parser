@@ -1,3 +1,7 @@
+## [0.0.4](https://github.com/lancewuz/proto-parser/compare/v0.0.3...v0.0.4) (2020-03-04)
+
+
+
 ## [0.0.3](https://github.com/lancewuz/proto-parser/compare/v0.0.2...v0.0.3) (2020-03-01)
 
 

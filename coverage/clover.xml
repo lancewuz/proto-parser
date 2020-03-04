@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1583314609827" clover="3.2.0">
-  <project timestamp="1583314609827" name="All files">
+<coverage generated="1583314801847" clover="3.2.0">
+  <project timestamp="1583314801847" name="All files">
     <metrics statements="649" coveredstatements="649" conditionals="304" coveredconditionals="304" methods="115" coveredmethods="111" elements="1068" coveredelements="1064" complexity="0" loc="649" ncloc="649" packages="2" files="7" classes="7"/>
     <package name="proto-parser">
       <metrics statements="12" coveredstatements="12" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
