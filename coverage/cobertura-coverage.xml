@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="649" lines-covered="649" line-rate="1" branches-valid="304" branches-covered="304" branch-rate="1" timestamp="1583321679046" complexity="0" version="0.1">
+<coverage lines-valid="649" lines-covered="649" line-rate="1" branches-valid="304" branches-covered="304" branch-rate="1" timestamp="1583322504819" complexity="0" version="0.1">
   <sources>
     <source>/Users/lancewu/Documents/code/proto-parser</source>
   </sources>
