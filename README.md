@@ -110,6 +110,10 @@ interface ParseOption {
   // Set whether to resolve types. The default value is true.
   resolve?: boolean
 
+  // Set whether to weak resolve types(do not throw errors when resolve failed).
+  // The default value is true.
+  weakResolve?: boolean
+
   // Set whether to return pure json Object. The default value is true.
   toJson?: boolean
 }

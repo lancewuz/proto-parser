@@ -367,6 +367,28 @@ message Test {
     return expect(fieldMap).to.eql(expected);
   });
 
+  it('should weak resolve type for field', () => {
+    const idl = `
+syntax = 'proto3';
+
+message Test {
+  Same k1 = 1;
+}
+    `;
+
+    const expected = {
+      value: 'Same',
+      syntaxType: 'Identifier',
+      resolvedValue: 'Same',
+    };
+
+    const protoDocument = t.parse(idl, {
+      weakResolve: true,
+    }) as t.ProtoDocument;
+    const message = protoDocument.root.nested.Test as t.MessageDefinition;
+    return expect(message.fields.k1.type).to.eql(expected);
+  });
+
   it('should dispose oneof', () => {
     const idl = `
 syntax = 'proto3';

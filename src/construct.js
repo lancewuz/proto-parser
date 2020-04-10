@@ -4,6 +4,11 @@ const util = require('./util');
 const { SyntaxType, getFieldType } = require('./ts_type');
 
 const ruleRe = /^required|optional|repeated$/;
+let weekResolve = false;
+
+function setWeekResolve(weak) {
+  weekResolve = !!weak;
+}
 
 class ReflectionObject {
   constructor(name, options) {
@@ -715,7 +720,11 @@ function ResolveType(type, parent) {
     if (!value.includes('.')) {
       resolvedValue = parent.lookup(value);
       if (!resolvedValue) {
-        throw new Error(`invalid type '${value}'`);
+        if (weekResolve) {
+          resolvedValue = value;
+        } else {
+          throw new Error(`invalid type '${value}'`);
+        }
       }
     } else {
       resolvedValue = `.${value}`;
@@ -738,4 +747,5 @@ module.exports = {
   Root,
   OneofDefinition,
   MapField,
+  setWeekResolve,
 };

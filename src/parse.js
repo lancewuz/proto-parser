@@ -7,6 +7,7 @@ parse.defaults = {
   keepCase: true,
   alternateCommentMode: true,
   resolve: true,
+  weakResolve: false,
   toJson: true,
 };
 
@@ -22,6 +23,7 @@ const {
   EnumDefinition: Enum,
   ServiceDefinition: Service,
   MethodDefinition: Method,
+  setWeekResolve,
 } = require('./construct');
 
 const base10Re = /^[1-9][0-9]*$/;
@@ -731,7 +733,14 @@ function parse(source, opt) {
 
   parse.filename = null;
 
-  if (options.resolve) root.resolve();
+  if (options.weakResolve) {
+    setWeekResolve(true);
+    root.resolve();
+  } else if (options.resolve) {
+    setWeekResolve(false);
+    root.resolve();
+  }
+
   if (options.toJson) {
     root = root.toJson();
   }

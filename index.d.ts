@@ -130,6 +130,7 @@ export interface ParseOption {
   keepCase?: boolean;
   alternateCommentMode?: boolean;
   resolve?: boolean;
+  weakResolve?: boolean;
   toJson?: boolean;
 }
 
