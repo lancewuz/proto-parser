@@ -1,3 +1,12 @@
+## [0.0.5](https://github.com/lancewuz/proto-parser/compare/v0.0.4...v0.0.5) (2020-04-10)
+
+
+### Features
+
+* support weakResolve ([dbad1e5](https://github.com/lancewuz/proto-parser/commit/dbad1e58957820ae6f0891433be7bcb8ce663464))
+
+
+
 ## [0.0.4](https://github.com/lancewuz/proto-parser/compare/v0.0.3...v0.0.4) (2020-03-04)
 
 
