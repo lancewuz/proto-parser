@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/lancewuz/proto-parser/compare/v0.0.5...v0.0.6) (2021-07-08)
+
+
+### Bug Fixes
+
+* duplicated comment ([3bda090](https://github.com/lancewuz/proto-parser/commit/3bda090022a55ff61a8dcbf47e3e5fa4b18bfef3))
+
+
+
 ## [0.0.5](https://github.com/lancewuz/proto-parser/compare/v0.0.4...v0.0.5) (2020-04-10)
 
 
