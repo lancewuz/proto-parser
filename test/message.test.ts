@@ -569,4 +569,70 @@ message Test {
     const protoError = t.parse(idl) as t.ProtoError;
     return expect(protoError.syntaxType).to.eql(t.SyntaxType.ProtoError);
   });
+
+  it('should generate single line comment', () => {
+    const idl = `
+syntax = 'proto3';
+
+message Test {
+  string key1 = 1; // c1
+  int32 key2 = 2; // c2
+  int64 key3 = 3; // c3
+  int32 key4 = 4;
+  // c5
+  string key5 = 5;
+  // c6
+  string key6 = 6;
+}
+    `;
+
+    const expected = {
+      key1: { comment: 'c1' },
+      key2: { comment: 'c2' },
+      key3: { comment: 'c3' },
+      key4: { comment: null },
+      key5: { comment: 'c5' },
+      key6: { comment: 'c6' },
+    };
+
+    const protoDocument = t.parse(idl) as t.ProtoDocument;
+    const message = protoDocument.root.nested.Test as t.MessageDefinition;
+    const messageInfos = util.copyMapWithkeys(message.fields, ['comment']);
+
+    return expect(messageInfos).to.eql(expected);
+  });
+
+  it('should generate block comment', () => {
+    const idl = `
+syntax = 'proto3';
+
+message Test {
+  string key1 = 1; /* c1 */
+  int32 key2 = 2; /** c2 */
+  int64 key3 = 3; /*c3*/
+  int32 key4 = 4;
+  /* c5 */
+  string key5 = 5;
+  /* c6-1
+  c6-2
+  */
+  string key6 = 6;
+}
+    `;
+
+    const expected = {
+      key1: { comment: 'c1' },
+      key2: { comment: 'c2' },
+      key3: { comment: '3' },
+      key4: { comment: null },
+      key5: { comment: 'c5' },
+      key6: { comment: 'c6-1\nc6-2' },
+    };
+
+    const protoDocument = t.parse(idl) as t.ProtoDocument;
+    const message = protoDocument.root.nested.Test as t.MessageDefinition;
+    const messageInfos = util.copyMapWithkeys(message.fields, ['comment']);
+
+    return expect(messageInfos).to.eql(expected);
+  });
 });
