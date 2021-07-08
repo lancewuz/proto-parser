@@ -109,6 +109,7 @@ function tokenize(source, alternateCommentMode) {
   let commentText = null;
   let commentLine = 0;
   let commentLineEmpty = false;
+  let currentCommentUsed = false;
 
   const stack = [];
 
@@ -188,6 +189,7 @@ function tokenize(source, alternateCommentMode) {
         .trim();
     }
     commentText = lines.join('\n').trim();
+    currentCommentUsed = false;
   }
 
   function isDoubleSlashCommentLine(startOffset) {
@@ -376,9 +378,11 @@ function tokenize(source, alternateCommentMode) {
       /* istanbul ignore next */
       if (
         commentLine === line - 1 &&
-        (alternateCommentMode || commentType === '*' || commentLineEmpty)
+        (alternateCommentMode || commentType === '*' || commentLineEmpty) &&
+        !currentCommentUsed
       ) {
         ret = commentText;
+        currentCommentUsed = true;
       }
     } else {
       /* istanbul ignore else */
@@ -389,9 +393,11 @@ function tokenize(source, alternateCommentMode) {
       if (
         commentLine === trailingLine &&
         !commentLineEmpty &&
-        (alternateCommentMode || commentType === '/')
+        (alternateCommentMode || commentType === '/') &&
+        !currentCommentUsed
       ) {
         ret = commentText;
+        currentCommentUsed = true;
       }
     }
     return ret;
