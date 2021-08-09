@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/lancewuz/proto-parser/compare/v0.0.6...v0.0.7) (2021-08-09)
+
+
+### Bug Fixes
+
+* linked comments parse error ([7446500](https://github.com/lancewuz/proto-parser/commit/7446500a8cd11579ca95ece8a38b897d7242b9eb))
+
+
+
 ## [0.0.6](https://github.com/lancewuz/proto-parser/compare/v0.0.5...v0.0.6) (2021-07-08)
 
 
