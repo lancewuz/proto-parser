@@ -199,7 +199,8 @@ function tokenize(source, alternateCommentMode) {
     const lineText = source.substring(startOffset, endOffset);
     // look for 1 or 2 slashes since startOffset would already point past
     // the first slash that started the comment.
-    const isComment = /^\s*\/{1,2}/.test(lineText);
+    const isComment =
+      /^\s*\/{1,2}/.test(lineText) && !/^\s*\/\*/.test(lineText);
     return isComment;
   }
 
