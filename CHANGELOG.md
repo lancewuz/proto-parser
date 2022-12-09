@@ -1,4 +1,4 @@
-## [0.0.8](https://github.com/lancewuz/proto-parser/compare/v0.0.6...v0.0.8) (2021-10-22)
+## [0.0.9](https://github.com/lancewuz/proto-parser/compare/v0.0.6...v0.0.9) (2022-12-09)
 
 
 ### Bug Fixes
@@ -8,7 +8,7 @@
 
 ### Features
 
-* resolve nested type ([4f7d857](https://github.com/lancewuz/proto-parser/commit/4f7d8576f2e8d20e45e7099b1d4d3a93246f28f3))
+* resolve nested type ([c407b26](https://github.com/lancewuz/proto-parser/commit/c407b26fe8729a66dfde0b0c699867154ac4f036))
 
 
 
