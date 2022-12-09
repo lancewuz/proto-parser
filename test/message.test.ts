@@ -247,15 +247,13 @@ message Test {
       type: {
         value: '.Foo',
         syntaxType: 'Identifier',
-        resolvedValue: '.Foo',
+        resolvedValue: '..Foo',
       },
       map: true,
       keyType: { value: 'string', syntaxType: 'BaseType' },
     };
 
-    const protoDocument = t.parse(idl, {
-      weakResolve: true,
-    }) as t.ProtoDocument;
+    const protoDocument = t.parse(idl) as t.ProtoDocument;
     const messageTest = protoDocument.root.nested.Test as t.MessageDefinition;
     const field = messageTest.fields.key1;
     const fieldInfos = util.copyObjectWithKeys(field, [
@@ -335,14 +333,13 @@ message Test {
     const idl = `
 syntax = 'proto3';
 
-message Same {
-}
+message Same {}
 
 message Test {
   message Same {}
 
   Same k1 = 1;
-  map<string, Same> k2 = 2;
+  map<string, foo.Same> k2 = 2;
 }
     `;
 
@@ -356,9 +353,9 @@ message Test {
       },
       k2: {
         type: {
-          value: 'Same',
+          value: 'foo.Same',
           syntaxType: 'Identifier',
-          resolvedValue: '.Test.Same',
+          resolvedValue: '.foo.Same',
         },
         keyType: { value: 'string', syntaxType: 'BaseType' },
       },
@@ -366,37 +363,6 @@ message Test {
 
     const protoDocument = t.parse(idl) as t.ProtoDocument;
     const message = protoDocument.root.nested.Test as t.MessageDefinition;
-    const fieldMap = util.copyMapWithkeys(message.fields, ['type', 'keyType']);
-    return expect(fieldMap).to.eql(expected);
-  });
-
-  it('should resolve nested type for field', () => {
-    const idl = `
-syntax = "proto3";
-package a;
-
-message Foo {
-  message Sub {}
-}
-
-message Test {
-  required Foo.Sub k1 = 1;
-}
-    `;
-
-    const expected = {
-      k1: {
-        type: {
-          value: 'Foo.Sub',
-          syntaxType: 'Identifier',
-          resolvedValue: '.a.Foo.Sub',
-        },
-      },
-    };
-
-    const protoDocument = t.parse(idl) as t.ProtoDocument;
-    const message = protoDocument.root.nested.a.nested
-      .Test as t.MessageDefinition;
     const fieldMap = util.copyMapWithkeys(message.fields, ['type', 'keyType']);
     return expect(fieldMap).to.eql(expected);
   });
