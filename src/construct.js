@@ -727,20 +727,7 @@ function ResolveType(type, parent) {
         }
       }
     } else {
-      // Resolve nested type
-      const typeParts = value.split('.');
-      if (typeParts[0] === '') typeParts.shift();
-      const resolvedFirstPart = parent.lookup(typeParts[0]);
-      if (!resolvedFirstPart) {
-        if (weekResolve) {
-          resolvedValue = value;
-        } else {
-          throw new Error(`invalid type '${value}'`);
-        }
-      } else {
-        typeParts[0] = resolvedFirstPart;
-        resolvedValue = typeParts.join('.');
-      }
+      resolvedValue = `.${value}`;
     }
 
     type.resolvedValue = resolvedValue;
