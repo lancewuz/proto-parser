@@ -653,7 +653,7 @@ class MethodDefinition extends ReflectionObject {
     const json = ReflectionObject.prototype.toJson.call(this);
     Object.assign(
       json,
-      copyObject(this, ['type', 'requestType', 'responseType'])
+      copyObject(this, ['type', 'requestType', 'responseType', 'requestStream', 'responseStream'])
     );
     return json;
   }
