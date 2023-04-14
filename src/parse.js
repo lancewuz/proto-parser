@@ -43,6 +43,7 @@ const fqTypeRefRe = /^(?:\.[a-zA-Z_][a-zA-Z_0-9]*)+$/;
  * @property {string|undefined} package Package name, if declared
  * @property {string[]|undefined} imports Imports, if any
  * @property {string[]|undefined} weakImports Weak imports, if any
+ * @property {string[]|undefined} publicImports Public imports, if any
  * @property {string|undefined} syntax Syntax, if specified (either `"proto2"` or `"proto3"`)
  * @property {Root} root Populated root instance
  */
@@ -86,6 +87,7 @@ function parse(source, opt) {
   let pkg;
   let imports;
   let weakImports;
+  let publicImports;
   let syntax;
   let isProto3 = false;
 
@@ -236,12 +238,14 @@ function parse(source, opt) {
   function parseImport() {
     let token = peek();
     let whichImports;
+    let isPublic = false;
     switch (token) {
       case 'weak':
         whichImports = weakImports || (weakImports = []);
         next();
         break;
       case 'public':
+        isPublic = true;
         next();
       // eslint-disable-line no-fallthrough
       default:
@@ -250,7 +254,12 @@ function parse(source, opt) {
     }
     token = readString();
     skip(';');
+    if(isPublic){
+      publicImports = publicImports || [];
+      publicImports.push(token);
+    }
     whichImports.push(token);
+    
   }
 
   function parseSyntax() {
@@ -749,6 +758,7 @@ function parse(source, opt) {
     package: pkg,
     imports,
     weakImports,
+    publicImports,
     syntax,
     root,
   };
