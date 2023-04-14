@@ -17,6 +17,7 @@ option (my_option) = "Foo1";
       package: undefined,
       imports: undefined,
       weakImports: undefined,
+      publicImports: undefined,
       syntax: 'proto3',
       syntaxType: 'ProtoDocument',
       root: {
@@ -42,7 +43,8 @@ import weak 'c.proto';
     `;
 
     const protoDocument = t.parse(idl) as t.ProtoDocument;
-    return expect(protoDocument.imports).to.eql(['a.proto', 'b.proto']);
+    expect(protoDocument.imports).to.eql(['a.proto', 'b.proto'])
+    return  expect(protoDocument.publicImports).to.eql(['b.proto']);
   });
 
   it('should generate package infos', () => {

@@ -114,6 +114,7 @@ export interface ProtoDocument {
   syntaxType: SyntaxType.ProtoDocument;
   imports?: string[];
   weakImports?: string[];
+  publicImports?: string[];
   package?: string;
   syntax: 'proto2' | 'proto3';
   root: ProtoRoot;
